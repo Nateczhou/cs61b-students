@@ -114,4 +114,20 @@ public class BuggyIntDListTest {
         assertEquals("first element should be 1", 1, l.getFront());
         assertEquals("last element should be 6", 6, l.getBack());
     }
+
+    @Test
+    public void testMerge2() {
+        l = new BuggyIntDList(1,3,5);
+        m = new BuggyIntDList(2,4,6);
+        l.mergeIntDList(m);
+        assertEquals("size should be 6", 6, l.size());
+        assertEquals("0th element should be 1", 1, l.get(0));
+        assertEquals("1th element should be 2", 2, l.get(1));
+        assertEquals("2th element should be 3", 3, l.get(2));
+        assertEquals("3th element should be 4", 4, l.get(3));
+        assertEquals("4th element should be 5", 5, l.get(4));
+        assertEquals("5th element should be 6", 6, l.get(5));
+        assertEquals("first element should be 1", 1, l.getFront());
+        assertEquals("last element should be 6", 6, l.getBack());
+    }
 }
