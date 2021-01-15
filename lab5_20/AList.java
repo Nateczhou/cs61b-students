@@ -15,16 +15,23 @@
 public class AList<Item> {
     private Item[] items;
     private int size;
+    private double utilRatio;
+    private double factor;
+    private int capacity;
 
     /** Creates an empty list. */
     public AList() {
-        items = (Item[]) new Object[100];
+        capacity = 100;
+        items = (Item[]) new Object[capacity];
         size = 0;
+        utilRatio = 0;
+        factor = 1.5;
     }
 
     /** Resizes the underlying array to the target capacity. */
     private void resize(int capacity) {
         Item[] a = (Item[]) new Object[capacity];
+        this.capacity = capacity;
         System.arraycopy(items, 0, a, 0, size);
         items = a;
     }
@@ -37,6 +44,16 @@ public class AList<Item> {
 
         items[size] = x;
         size = size + 1;
+    }
+
+    public void addLastFancy(Item x) {
+        if (size == items.length) {
+            resize((int) (factor * size));
+        }
+
+        items[size] = x;
+        size = size + 1;
+        //utilRatio = ((double)size)/capacity;
     }
 
     /** Returns the item from the back of the list. */
