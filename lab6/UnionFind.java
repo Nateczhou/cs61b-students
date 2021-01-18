@@ -1,6 +1,7 @@
 public class UnionFind {
 
     // TODO - Add instance variables?
+    private int[] parent;
 
     /* Creates a UnionFind data structure holding n vertices. Initially, all
        vertices are in disjoint sets. */
